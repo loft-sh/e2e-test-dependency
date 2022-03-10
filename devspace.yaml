@@ -6,6 +6,7 @@ pipelines:
     steps:
     - run: |-
         echo "Hello I am ${devspace.name}" > dependency.txt
+        echo "Hello again I am ${devspace.name}"
   dev:
     steps:
     - run: |-
