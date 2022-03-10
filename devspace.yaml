@@ -5,11 +5,12 @@ pipelines:
   deploy:
     steps:
     - run: |-
-        echo "Hello I am ${devspace.name}" > dependency.txt
+        echo "Hello I am ${devspace.name}" > dependency-deploy.txt
         echo "Hello again I am ${devspace.name}"
   dev:
     steps:
     - run: |-
+        echo "Hello I am ${devspace.name}" > dependency-dev.txt
         create_deployments test --set helm.values.containers[0].image=alpine
         
         start_dev test --set imageSelector=alpine \
