@@ -3,16 +3,14 @@ name: dependency
 
 pipelines:
   deploy:
-    steps:
-    - run: |-
-        echo "Hello I am ${devspace.name}" > dependency-deploy.txt
-        echo "Hello again I am ${devspace.name}"
+    run: |-
+      echo "Hello I am ${devspace.name}" > dependency-deploy.txt
+      echo "Hello again I am ${devspace.name}"
   dev:
-    steps:
-    - run: |-
-        echo "Hello I am ${devspace.name}" > dependency-dev.txt
-        create_deployments test --set helm.values.containers[0].image=alpine
-        
-        start_dev test --set imageSelector=alpine \
-                       --set 'command={sleep,999999}' \
-                       --set sync[0].path=.:/app
+    run: |-
+      echo "Hello I am ${devspace.name}" > dependency-dev.txt
+      create_deployments test --set helm.values.containers[0].image=alpine
+
+      start_dev test --set imageSelector=alpine \
+                     --set 'command={sleep,999999}' \
+                     --set sync[0].path=.:/app
