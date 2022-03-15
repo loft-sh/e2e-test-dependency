@@ -1,7 +1,6 @@
 version: v2beta1
 name: dependency
 
-commands:
-  dep-test:
-    command: |-
-      echo "Test-${devspace.name}"
+functions:
+  dep-test: |-
+    echo "Test-${devspace.name}"
