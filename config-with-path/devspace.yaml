@@ -1,0 +1,9 @@
+version: v2beta1
+name: dependency
+
+deployments:
+  myapp:
+    helm:
+      chart:
+        name: myapp
+        path: ../myapp
